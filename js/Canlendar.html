@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			body,
+			td,
+			.p1,
+			.p2,
+			.i {
+				font-family: arial
+			}
+			
+			body {
+				margin: 6px 0 0 0;
+				background-color: #fff;
+				color: #000;
+			}
+			
+			table {
+				border: 0
+			}
+			
+			#cal {
+				width: 430px;
+				border: 1px solid #f5f5f5;
+				font-size: 12px;
+				margin: 0px 0 0 0px;
+				
+				
+			}
+			
+			#cal #top {
+				height: 40px;
+				line-height: 40px;
+				background: #e7eef8;
+				color: #4e6ef2;
+				font-size:14px;
+				padding-left: 10px
+			}
+			#cal #cm .cell.jjr{background:#fee0e0;border-radius:3px;}
+			#cal #top select {
+				font-size: 12px
+			}
+			
+			#cal #top input {
+				padding: 0
+			}
+			
+			#cal ul#wk {
+				margin: 0;
+				padding: 0;
+				height:25px;
+				padding-top:10px;
+			}
+			
+			#cal ul#wk li {
+				float: left;
+				width: 50px;
+				text-align: center;
+				line-height:25px;
+				list-style: none;
+				padding-left:10px;
+				font-weight:900;
+			}
+			
+			#cal ul#wk li b {
+				font-weight: normal;
+				color: #c60b02
+			}
+			
+			#cal #cm {
+				clear: left;
+				/*border-top: 1px solid #ddd;
+				border-bottom: 1px dotted #ddd;*/
+				position: relative
+			}
+			
+			#cal #cm .cell {
+				position: absolute;
+				width: 50px;
+				height: 50px;
+				text-align: center;
+				margin: 0 0 0 9px;
+				cursor:pointer;
+			}
+			
+			#cal #cm .cell .so {
+				padding-top:10px;
+				font: bold 16px arial;
+			}
+			
+			#cal #bm {
+				text-align: right;
+				height: 24px;
+				line-height: 24px;
+				padding: 0 13px 0 0
+			}
+			
+			#cal #bm a {
+				color: 7977ce
+			}
+			
+			#cal #fd {
+				display: none;
+				position: absolute;
+				border: 1px solid #dddddf;
+				background: #feffcd;
+				padding: 10px;
+				line-height: 21px;
+				width: 150px
+			}
+			
+			#cal #fd b {
+				font-weight: normal;
+				color: #c60a00
+			}
+			.mainBox{position:relative;padding:30px;}
+			.mainBoxDate{position:absolute;top:55px;left:30px;width:432px;box-shadow: 0 2px 10px 0 rgba(0,0,0,.1);border-radius:5px;display:none;}
+		</style>
+	</head>
+
+	<body>
+		<div class="mainBox">
+			<input type="" name=""  value="" id="dept"/>
+			<div class="mainBoxDate">
+				<table cellpadding="0" cellspacing="0" id="1">
+					<tr>
+						<td>
+
+							<div id="cal">
+								<div id="top">公元&nbsp;
+									<select>
+									</select>
+									&nbsp;年&nbsp;
+									<select>
+									</select>
+									&nbsp;月&nbsp;&nbsp;&nbsp;&nbsp;农历<span></span>年&nbsp;[&nbsp;<span></span>年&nbsp;]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<input type="button" value="回到今天" title="点击后跳转回今天" style="visibility: visible;background: #4e6ef2;color: #fff;border: 0px;padding: 5px;right: 5px;margin-right: 5px;border-radius: 5px;font-size: 12px;">
+								</div>
+								<ul id="wk">
+									<li>一</li>
+									<li>二</li>
+									<li>三</li>
+									<li>四</li>
+									<li>五</li>
+									<li><b>六</b></li>
+									<li><b>日</b></li>
+								</ul>
+								<div id="cm"></div>
+								<div id="bm"></div>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/jquery-2.1.4.js" ></script>
+		<script type="text/javascript" src="js/date.js" ></script>
+		<script>
+			
+			
+			$("#dept").click(function(){
+				$(".mainBoxDate").toggle();
+			});
+
+            function getDateTime(e){
+            	$("#dept").val(e);
+            }
+		</script>
+	</body>
+
+</html>

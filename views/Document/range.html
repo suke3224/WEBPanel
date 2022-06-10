@@ -1,0 +1,191 @@
+<style>
+    #chart {
+      width: 1000px;
+      height: 400px;
+    }
+  </style>
+  <div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+      <div class="layui-col-md12">
+        <div class="layui-row layui-col-space15">
+          <div class="layui-col-md2">
+            <div class="layui-card">
+              <div class="layui-card-body">
+                <b>Virtual Maware</b>
+                <svg class="icon" aria-hidden="true">
+                  <use xlink:href="#icon-a-fuwuqipeizhishezhi"></use>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="layui-col-md1">
+            <div class="layui-card">
+              <div class="layui-card-body">
+                文件
+                <svg class="icon" aria-hidden="true">
+                  <use xlink:href="#icon-35schedule"></use>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="layui-col-md1">
+            <div class="layui-card">
+              <div class="layui-card-body">
+                编辑
+                <svg class="icon" aria-hidden="true">
+                  <use xlink:href="#icon-15film"></use>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="layui-col-md1">
+            <div class="layui-card">
+              <div class="layui-card-body">
+                交互
+                <svg class="icon" aria-hidden="true">
+                  <use xlink:href="#icon-43target"></use>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="layui-col-md1">
+            <div class="layui-card">
+              <div class="layui-card-body">
+                传输
+                <svg class="icon" aria-hidden="true">
+                  <use xlink:href="#icon-39speedmeter"></use>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="layui-col-md1">
+            <div class="layui-card">
+              <div class="layui-card-body">
+                转到
+                <svg class="icon" aria-hidden="true">
+                  <use xlink:href="#icon-50mailbox"></use>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="layui-col-md1">
+            <div class="layui-card">
+              <div class="layui-card-body">
+                终端
+                <svg class="icon" aria-hidden="true">
+                  <use xlink:href="#icon-28mobile"></use>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="layui-col-md1">
+            <div class="layui-card">
+              <div class="layui-card-body">
+                设置
+                <svg class="icon" aria-hidden="true">
+                  <use xlink:href="#icon-40sport"></use>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="layui-col-md1">
+            <div class="layui-card">
+              <div class="layui-card-body">
+                帮助
+                <svg class="icon" aria-hidden="true">
+                  <use xlink:href="#icon-36school"></use>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="layui-col-md2">
+            <div class="layui-card">
+              <div class="layui-card-body">
+                Cross
+                <svg class="icon" aria-hidden="true">
+                  <use xlink:href="#icon-16global"></use>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <!--115603故障索引-->
+        </div>
+      </div>
+      <div class="layui-col-md12">
+        <div class="layui-row layui-col-space15">
+          <div class="layui-col-md11">
+            <div class="layui-row layui-col-space15">
+              <div class="layui-col-md12">
+                <div class="layui-card">
+                  <div class="layui-card-header">Sever Local</div>
+                  <div class="layui-card-body">
+                    <iframe src="http://localhost:84/" height="650px" width="100%"  frameborder="0">无法访问</iframe>
+                  </div>
+                </div>
+              </div>
+              <!--故障索引009324-->
+              <div class="layui-col-md12">
+                <div class="layui-card">
+                  <div class="layui-card-header">数据统计</div>
+                  <div class="layui-card-body">
+                    <table id="demo_hash" lay-filter="test_hash"></table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="layui-col-md1">
+            <div class="layui-row layui-col-space15">
+              <div class="layui-col-md12">
+                <div class="layui-card">
+                  <!--115603故障索引-->
+                  <div class="layui-card-header" style="text-align:center;">工具栏</div>
+                </div>
+              </div>
+              <div class="layui-col-md12">
+                <div class="layui-card">
+                  <!--115603故障索引-->
+                  <div class="layui-card-header" style="text-align:center;">Sever</div>
+                </div>
+              </div>
+              <div class="layui-col-md12">
+                <div class="layui-card">
+                  <!--115603故障索引-->
+                  <div class="layui-card-header">
+                    <div class="layui-card-body">
+                        TOP
+                    </div>
+                </div>
+                </div>
+              </div>
+              <div class="layui-col-md12">
+                <div class="layui-card">
+                  <!--115603故障索引-->
+                  <div class="layui-card-header" style="text-align:center;">工具栏</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    function  getD1(){
+        var date=new Date();
+        var d1=date.toLocaleString();
+        var div1=document.getElementById("times");
+        div1.innerHTML =d1;
+  
+    }
+  //显示实时时间
+    setInterval("getD1();",1000);
+    </script>
+  <style>
+   .p{
+    font-family:"HarmonyOS Sans Medium"; 
+    src:url('css/fonts/HarmonyOS_Sans_Medium.ttf') 
+    format('TrueTypet');
+   }
+  </style>
+  <!--007693故障索引-->

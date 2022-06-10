@@ -1,0 +1,390 @@
+<style>
+  @charset "utf-8";
+  .window {
+    border: 6px #ccc outset;
+    width: 710px;
+    height: 342px;
+    background-color: #000;
+    position: absolute;
+    overflow: hidden;
+  }
+
+  .title {
+    background-color: #9b9b9b;
+    padding: 2px;
+    font: white;
+  }
+
+  #text {
+    background-color: #000;
+    border-top: #ccc outset 2px;
+    height: 230px;
+    overflow-y: scroll;
+  }
+
+  ul {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+  }
+
+  input {
+    background-color: #000;
+    border: 0;
+    color: #fff;
+    outline: none;
+    /*font-size:12px;*/
+    width: 100%;
+  }
+</style>
+<div class="layui-fluid">
+  <div class="layui-row layui-col-space15">
+    <div class="layui-col-md12">
+      <div class="layui-row layui-col-space15">
+        <div class="layui-col-md5">
+          <div class="layui-card">
+            <div class="layui-card-body">
+              运行项目状态 :
+              <use xlink:href="#icon-a-fuwuqipeizhishezhi"></use>
+              Encoding Media:
+              <svg class="icon" aria-hidden="true"></svg>
+            </div>
+          </div>
+        </div>
+        <div class="layui-col-md3">
+          <div class="layui-card">
+            <div class="layui-card-body">
+              超算状态
+              <svg class="icon" aria-hidden="true">
+                <use
+                  xlink:href="#icon-a-xinpinzhongyangchuliqicpujisuanjidiannao"
+                ></use>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="layui-col-md4">
+          <div class="layui-card">
+            <div class="layui-card-body">
+              渲染器
+              <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-a-zhizhuwangwangluo"></use>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <!--115603故障索引-->
+      </div>
+    </div>
+    <div class="layui-col-md12">
+      <div class="layui-row layui-col-space15">
+        <div class="layui-col-md8">
+          <div class="layui-row layui-col-space15">
+            <div class="layui-col-md12">
+              <div class="layui-card b">
+                <div class="layui-card-header">ECharts</div>
+                <div class="layui-card-body">
+                  <div class="window">
+                    <div class="title">
+                      <svg class="icon" aria-hidden="true">
+                        <use
+                          xlink:href="#icon-a-jisuanjidiannaofenxishujuzoushiqushi1"
+                        ></use>
+                      </svg>
+                      <span>WEB Conlong</span>
+                    </div>
+                    <div id="text">
+                      welcome
+                      <input type="text" name="" id="in" />
+                    </div>
+                  </div>
+                  <div id="container1" style="height: 350px"></div>
+                </div>
+              </div>
+            </div>
+            <div class="layui-col-md12">
+              <div class="layui-card">
+                <div class="layui-card-header">ECharts</div>
+                <div class="layui-card-body">
+                  <div id="main1" style="height: 350px"></div>
+                </div>
+              </div>
+            </div>
+            <!--故障索引009324-->
+            <div class="layui-col-md12">
+              <div class="layui-card">
+                <div class="layui-card-header">数据统计</div>
+                <div class="layui-card-body">
+                  <table id="demo_hash" lay-filter="test_hash"></table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="layui-col-md4">
+          <div class="layui-row layui-col-space15">
+            <div class="layui-col-md12">
+              <div class="layui-card">
+                <!--115603故障索引-->
+                <div class="layui-card-header">快捷入口</div>
+                <div class="layui-card-body">
+                  <div class="layui-row layui-col-space5">
+                    <!-- <div class="layui-col-sm3">
+                            <div style="height:75px;  background-color:#ccc;"></div>
+                          </div>
+                          <div class="layui-col-sm3">
+                            <div style="height:75px;  background-color:#ccc;"></div>
+                          </div>
+                          <div class="layui-col-sm3">
+                            <div style="height:75px;  background-color:#ccc;"></div>
+                          </div>
+                          <div class="layui-col-sm3">
+                            <div style="height:75px;  background-color:#ccc;"></div>
+                          </div>-->
+                    <div class="layui-col-sm3">
+                      <div class="dib-box">
+                        <svg
+                          style="font-size: 42px; text-align: center"
+                          class="icon svg-icon"
+                          aria-hidden="true"
+                        >
+                          <use xlink:href="#icon-a-fuwuqizhujivps"></use>
+                        </svg>
+                        <div class="link-box">服务器管控</div>
+                      </div>
+                    </div>
+                    <div class="layui-col-sm3">
+                      <div class="dib-box">
+                        <svg
+                          style="font-size: 42px; text-align: center"
+                          class="icon svg-icon"
+                          aria-hidden="true"
+                        >
+                          <use xlink:href="#icon-fuwuqibeifenhuanyuan"></use>
+                        </svg>
+                        <div class="link-box">数据备份</div>
+                      </div>
+                    </div>
+                    <div class="layui-col-sm3">
+                      <div class="dib-box">
+                        <svg
+                          style="font-size: 42px; text-align: center"
+                          class="icon svg-icon"
+                          aria-hidden="true">
+                          <use xlink:href="#icon-fuwuqiweihu"></use>
+                        </svg>
+                        <div class="link-box">状态日志</div>
+                      </div>
+                    </div>
+                    <div class="layui-col-sm3">
+                      <div class="dib-box">
+                        <svg
+                          style="font-size: 42px; text-align: center"
+                          class="icon svg-icon"
+                          aria-hidden="true"
+                        >
+                          <use xlink:href="#icon-fuwuqigengxinshengji"></use>
+                        </svg>
+                        <div class="link-box">升级优化</div>
+                      </div>
+                    </div>
+                    <div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
+                      <div class="dib-box">
+                        <svg
+                          style="font-size: 42px; text-align: center"
+                          class="icon svg-icon"
+                          aria-hidden="true"
+                        >
+                          <use xlink:href="#icon-a-zhizhuwangwangluo"></use>
+                        </svg>
+                        <div class="link-box">防火墙管理</div>
+                      </div>
+                    </div>
+                    <div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
+                      <div class="dib-box">
+                        <svg
+                          style="font-size: 42px; text-align: center"
+                          class="icon svg-icon"
+                          aria-hidden="true"
+                        >
+                          <use
+                            xlink:href="#icon-a-neicunkayingjianjisuanjidiannao"
+                          ></use>
+                        </svg>
+                        <div class="link-box">超级计算机面板</div>
+                      </div>
+                    </div>
+                    <div class="layui-col-xs4 layui-col-sm12 layui-col-md4">
+                      <div class="dib-box">
+                        <svg
+                          style="font-size: 42px; text-align: center"
+                          class="icon svg-icon"
+                          aria-hidden="true"
+                        >
+                          <use xlink:href="#icon-a-xiankadiannaoyingjian"></use>
+                        </svg>
+                        <div class="link-box">超级计算机管控</div>
+                      </div>
+                    </div>
+                    <div class="layui-col-xs4 layui-col-sm7 layui-col-md4">
+                      <div class="dib-box">
+                        <svg
+                          style="font-size: 42px; text-align: center"
+                          class="icon svg-icon"
+                          aria-hidden="true"
+                        >
+                          <use
+                            xlink:href="#icon-a-jisuanjidiannaofenxishujuzoushiqushi"
+                          ></use>
+                        </svg>
+                        <div class="link-box">数据分析</div>
+                      </div>
+                    </div>
+                    <div class="layui-col-xs4 layui-col-sm7 layui-col-md4">
+                      <div class="dib-box">
+                        <svg
+                          style="font-size: 42px; text-align: center"
+                          class="icon svg-icon"
+                          aria-hidden="true"
+                        >
+                          <use xlink:href="#icon-appruanjianchengxu"></use>
+                        </svg>
+                        <div class="link-box">智能生态</div>
+                      </div>
+                    </div>
+                    <div class="layui-col-xs4 layui-col-sm5 layui-col-md4">
+                      <div class="dib-box">
+                        <svg
+                          style="font-size: 42px; text-align: center"
+                          class="icon svg-icon"
+                          aria-hidden="true"
+                        >
+                          <use xlink:href="#icon-a-shezhimianbancanshu"></use>
+                        </svg>
+                        <div class="link-box">其他中央面板</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="layui-col-md12">
+              <div class="layui-card">
+                <div class="layui-card-header">运行信息</div>
+                <div class="layui-card-body">
+                  <table class="layui-table">
+                    <colgroup>
+                      <col width="150" />
+                      <col />
+                    </colgroup>
+                    <tbody>
+                      <tr>
+                        <td>运行时间</td>
+                        <td><div id="times"></div></td>
+                      </tr>
+                      <tr>
+                        <td>运行状态</td>
+                        <td>
+                          <b><p style="color: #00be3f">良好</p></b>
+                        </td>
+                        <!--故障索引007693-->
+                      </tr>
+                      <tr>
+                        <td>服务器日志信息</td>
+                        <td>
+                          MessageLog：2022581131.Project Be Ceative 23s before
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>超算信息</td>
+                        <td>
+                          Dell PowerEdge R940<br />HUAWEI 2288H V5
+                          <br />超微4029GP-TRT <br />HUAWEI RH2288 V2
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>在线设备</td>
+                        <td>135....</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="layui-col-md12">
+              <div class="layui-card">
+                <div class="layui-card-header">关于服务参数</div>
+                <div class="layui-card-body">
+                  <p>
+                    当前版本是基于layui
+                    2.x重构的版本，与之后1.x版本有本质有区别。
+                  </p>
+                  <p>该版本的核心是[路由]，不再支持[iframe]方式的加载</p>
+                  <p>版本特性：</p>
+                  <ul>
+                    <li>
+                      1、用法一如既往的简单，快捷。(只需要简单的配置就实现一些功能).
+                    </li>
+                    <li>2、提供本地开发环境。(依赖nodejs运行环境和gulp)</li>
+                    <li>3、提供代码功能。(依赖nodejs运行环境和gulp)</li>
+                    <li>
+                      4、模块化加载。(依赖layui模块化，用法与layui保持一致)
+                    </li>
+                    <li>
+                      5、提供路由功能。(路由是本版本的核心功能了，需与模板绑定，详情请参考相关文档)
+                    </li>
+                    <li>
+                      6、完全的前后端分离开发。(集成mockjs用于拦截请求并返回模拟数据，详情请参考相关文档)
+                    </li>
+                    <li>
+                      7、左侧菜单重写，支持到4级菜单。(集成mockjs用于拦截请求并返回模拟数据，详情请参考相关文档)
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  function getD1() {
+    var date = new Date();
+    var d1 = date.toLocaleString();
+    var div1 = document.getElementById("times");
+    div1.innerHTML = d1;
+  }
+  //显示实时时间
+  setInterval("getD1();", 1000);
+</script>
+
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $(document).keyup(function (event) {
+      if (event.keyCode == 13) {
+        $.ajax({
+          type: "POST",
+          url: "ok.php",
+          data: "code=" + $("#in").val(),
+          success: function (msg) {
+            $("ul").append("<li>" + $("#in").val() + "</li>"); //将输入的输出到界面
+            $("ul").append("<li>" + msg + "</li>"); //获取返回值并输出
+            $("#in").val(""); //清空输入框
+            $("#text").scrollTop($("#text").scrollTop() + 32); //滚动条拉到最下面，显示出输入框
+          },
+        });
+      }
+    });
+    $("#in")[0].focus();
+  });
+</script>
+<style>
+  .p {
+    font-family: "HarmonyOS Sans Medium";
+    src: url("css/fonts/HarmonyOS_Sans_Medium.ttf") format("TrueTypet");
+  }
+</style>
+<!--007693故障索引-->

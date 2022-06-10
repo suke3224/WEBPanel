@@ -1,0 +1,401 @@
+<link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
+<style>
+  #chart {
+    width: 1000px;
+    height: 400px;
+  }
+</style>
+<style>
+  #chart {
+      width: 1000px;
+      height: 400px;
+    }
+  #map-styles .input-item {
+      height: 2rem;
+    }
+
+    #map-styles .input-item span{
+      display: inline-block;
+      width: 4rem;
+    }
+
+    #map-styles .input-item .input-text {
+      color: #0288d1;
+      margin-left: 1rem;
+      margin-right: 0rem;
+      width: 6rem;
+    }
+</style>
+<style>
+  .calendar {
+    width: 450px;
+    height: 350px;
+    background: #fff;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+  }
+  .body-list ul {
+    width: 100%;
+    font-family: arial;
+    font-weight: bold;
+    font-size: 14px;
+  }
+  .body-list ul li {
+    width: 14.28%;
+    height: 36px;
+    line-height: 36px;
+    list-style-type: none;
+    display: block;
+    box-sizing: border-box;
+    float: left;
+    text-align: center;
+  }
+  .lightgrey {
+    color: #a8a8a8; /*浅灰色*/
+  }
+  .darkgrey {
+    color: #565656; /*深灰色*/
+  }
+  .green {
+    color: #6ac13c; /*绿色*/
+  }
+  .greenbox {
+    border: 1px solid #6ac13c;
+    background: #e9f8df; /*浅绿色背景*/
+  }
+</style>
+<div class="layui-fluid">
+  <div class="layui-row layui-col-space15">
+    <div class="layui-col-md12">
+      <div class="layui-row layui-col-space15">
+        <div class="layui-col-md3">
+          <div class="layui-card">
+            <div class="layui-card-body">
+              服务器管理
+              <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-a-fuwuqizhujivps"></use>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="layui-col-md3">
+          <div class="layui-card">
+            <div class="layui-card-body">
+              服务列表
+              <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-fuwuqixinxi"></use>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="layui-col-md3">
+          <div class="layui-card">
+            <div class="layui-card-body">
+              部件信息
+              <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-jisuanjidiannaoxinxi"></use>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="layui-col-md3">
+          <div class="layui-card">
+            <div class="layui-card-body">
+              服务信息
+              <svg class="icon" aria-hidden="true">
+                <use
+                  xlink:href="#icon-a-jisuanjidiannaofenxishujuzoushiqushi"
+                ></use>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <!--115603故障索引-->
+      </div>
+    </div>
+    <div class="layui-col-md12">
+      <div class="layui-row layui-col-space15">
+        <div class="layui-col-md8">
+          <div class="layui-row layui-col-space15">
+            <div class="layui-col-md12">
+              <div class="layui-card">
+                <div class="layui-card-header">设备信息</div>
+                <div class="layui-card-body">
+                  <div width="50%" id="charts"></div>
+                  <div id="UID">
+                    <ol>
+                      <li>
+                        <a href="" class="layui-btn layui-btn-normal"
+                          >服务器状态</a
+                        >
+                        <a href="" class="layui-btn">设备健康灯</a>
+                        <a href="" class="layui-btn">UID调试</a>
+                      </li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="layui-col-md8">
+              <div class="layui-card">
+                <div class="layui-card-header">计划程序</div>
+                <div class="layui-card-body">
+                  <div class="calendar">
+                    <div class="title">
+                      <h1 class="green" id="calendar-title">Month</h1>
+                      <h2 class="green small" id="calendar-year">Year</h2>
+                      <a href="" id="prev">Prev Month</a>
+                      <a href="" id="next">Next Month</a>
+                    </div>
+                    <div class="body">
+                      <div class="lightgrey body-list">
+                        <ul>
+                          <li>MON</li>
+                          <li>TUE</li>
+                          <li>WED</li>
+                          <li>THU</li>
+                          <li>FRI</li>
+                          <li>SAT</li>
+                          <li>SUN</li>
+                        </ul>
+                      </div>
+                      <div class="darkgrey body-list">
+                        <ul id="days"></ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="layui-col-md4">
+              <div class="layui-card">
+                <div class="layui-card-header">ECharts</div>
+                <div class="layui-card-body">
+                  <table class="layui-table">
+                    <colgroup>
+                      <col width="150" />
+                      <col />
+                    </colgroup>
+                    <tbody>
+                      <tr>
+                        <td>Online WEB Core</td>
+                        <!--故障索引007693-->
+                      </tr>
+                      <tr>
+                        <td>Run WEB site:10113 in:05132128</td>
+                      </tr>
+                      <tr>
+                        <td>Run Support check in:05132132</td>
+                      </tr>
+                      <tr>
+                        <td>Run Light on sever in:05132135</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <!--故障索引009324-->
+            <div class="layui-col-md12">
+              <div class="layui-card">
+                <div class="layui-card-header">数据统计</div>
+                <div class="layui-card-body">
+                  <!--<iframe src="views/DataLab/index.html" style="width: 2220px; height: 937px;transform-origin: left top; transform: scale(0.703, 0.703)" frameborder="0"></iframe>-->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="layui-col-md4">
+          <div class="layui-row layui-col-space15">
+            <div class="layui-col-md12">
+              <div class="layui-card">
+                <!--115603故障索引-->
+                <div class="layui-card-header">服务器状态信息</div>
+                <div class="layui-card-body">
+                  <div class="layui-row layui-col-space5">
+                    <table class="layui-table">
+                      <colgroup>
+                        <col width="150" />
+                        <col />
+                      </colgroup>
+                      <tbody>
+                        <tr>
+                          <td>运行状态</td>
+                          <td>
+                            <b><p style="color: #00be3f">良好</p></b>
+                          </td>
+                          <!--故障索引007693-->
+                        </tr>
+                        <tr>
+                          <td>设备序列号</td>
+                          <td>RH1288V3</td>
+                        </tr>
+                        <tr>
+                          <td>iMana国件版本</td>
+                          <td>192.168.2.100 <br />(U25)5.29</td>
+                        </tr>
+                        <tr>
+                          <td>全周唯一标识特（GUID)</td>
+                          <td>(U47)1.13 2902BC4C-1DD2-11B2-86AF-0018E1C5D86</td>
+                        </tr>
+                        <tr>
+                          <td>Web最大会话数</td>
+                          <td>在线用户数CU:1) Administartor</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="layui-col-md12">
+              <div class="layui-card">
+                <div class="layui-card-header">服务访问追踪</div>
+                <iframe width="100%" height="300px" src="views/Document/Maps.html" frameborder="0">Shows Error!</iframe>
+                  <!--<div id="container"></div> -->
+                </div>
+              </div>
+            </div>
+            <div class="layui-col-md12">
+              <div class="layui-card">
+                <div class="layui-card-header">关于服务参数</div>
+                <div class="layui-card-body">
+                  <p>
+                    服务器的状态仅为服务器内部的传感器以及大数据分析得出 <b>仅供参考</b> 
+                    具体服务器状态请直接对物理服务器状态进行评估 以得出服务器检测最终结论
+                  </p>
+                  <p>
+                    服务器管理面板为远程管理面板 仅供内网使用 <br/>
+                    请勿设置内网穿透 代理 等影响服务器正常运行
+                  </p>
+                  <br/>
+                  <p>
+                    存储服务器RAID阵列异常时 请通过<br/>
+                    <ul>
+                      <li>
+                        1.服务器的管理面板进行状态评估 以及进行
+                      </li>
+                      <li>
+                        2.快速重建阵列 以保证数据安全
+                      </li>
+                    </ul>
+                  </p>
+                  <br/>
+                  <p>
+                    服务器服务端状态出现异常时 可以通过:
+                    <ul>
+                      <li>服务器整体管理面板</li>
+                      <li>网络管理面板进行内网管理</li>
+                    </ul>
+                    <br/>
+                     可以远程调控服务器 如需直接管理服务器内层 请在<b>保证服务器正常运作</b>的前提下
+                     接入服务器管理端口进行管理
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  var month_olympic = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  var month_normal = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  var month_name = [
+    "January",
+    "Febrary",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "Auguest",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  var holder = document.getElementById("days");
+  var prev = document.getElementById("prev");
+  var next = document.getElementById("next");
+  var ctitle = document.getElementById("calendar-title");
+  var cyear = document.getElementById("calendar-year");
+
+  var my_date = new Date();
+  var my_year = my_date.getFullYear();
+  var my_month = my_date.getMonth();
+  var my_day = my_date.getDate();
+
+  //获取某年某月第一天是星期几
+  function dayStart(month, year) {
+    var tmpDate = new Date(year, month, 1);
+    return tmpDate.getDay();
+  }
+
+  //计算某年是不是闰年，通过求年份除以4的余数即可
+  function daysMonth(month, year) {
+    var tmp = year % 4;
+    if (tmp == 0) {
+      return month_olympic[month];
+    } else {
+      return month_normal[month];
+    }
+  }
+
+  function refreshDate() {
+    var str = "";
+    var totalDay = daysMonth(my_month, my_year); //获取该月总天数
+    var firstDay = dayStart(my_month, my_year); //获取该月第一天是星期几
+    var myclass;
+    for (var i = 1; i < firstDay; i++) {
+      str += "<li></li>"; //为起始日之前的日期创建空白节点
+    }
+    for (var i = 1; i <= totalDay; i++) {
+      if (
+        (i < my_day &&
+          my_year == my_date.getFullYear() &&
+          my_month == my_date.getMonth()) ||
+        my_year < my_date.getFullYear() ||
+        (my_year == my_date.getFullYear() && my_month < my_date.getMonth())
+      ) {
+        myclass = " class='lightgrey'"; //当该日期在今天之前时，以浅灰色字体显示
+      } else if (
+        i == my_day &&
+        my_year == my_date.getFullYear() &&
+        my_month == my_date.getMonth()
+      ) {
+        myclass = " class='green greenbox'"; //当天日期以绿色背景突出显示
+      } else {
+        myclass = " class='darkgrey'"; //当该日期在今天之后时，以深灰字体显示
+      }
+      str += "<li" + myclass + ">" + i + "</li>"; //创建日期节点
+    }
+    holder.innerHTML = str; //设置日期显示
+    ctitle.innerHTML = month_name[my_month]; //设置英文月份显示
+    cyear.innerHTML = my_year; //设置年份显示
+  }
+  refreshDate(); //执行该函数
+
+  prev.onclick = function (e) {
+    e.preventDefault();
+    my_month--;
+    if (my_month < 0) {
+      my_year--;
+      my_month = 11;
+    }
+    refreshDate();
+  };
+  next.onclick = function (e) {
+    e.preventDefault();
+    my_month++;
+    if (my_month > 11) {
+      my_year++;
+      my_month = 0;
+    }
+    refreshDate();
+  };
+</script>
+<!--007693故障索引-->
